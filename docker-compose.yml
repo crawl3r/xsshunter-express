@@ -8,7 +8,7 @@ services:
       # the IP of the server running this service. 
       # SSL will automatically be set up and
       #  renewed with LetsEncrypt.
-      - HOSTNAME=your.host.name
+      - HOSTNAME=host.name.here
       # [REQUIRED] Email for SSL
       - SSL_CONTACT_EMAIL=YourEmail@gmail.com
       # Maximum XSS callback payload size
@@ -31,6 +31,10 @@ services:
       - SMTP_PASSWORD=YourEmailPassword
       - SMTP_FROM_EMAIL=YourEmail@gmail.com
       - SMTP_RECEIVER_EMAIL=YourEmail@gmail.com
+      # DISCORD details for XSS payload fires.
+      - DISCORD_NOTIFICATIONS_ENABLED=true
+      - DISCORD_USERNAME=xsshunter
+      - DISCORD_WEBHOOK=webhookurlhere 
       # THERE IS NO NEED TO MODIFY BELOW THIS LINE
       # ------------------------------------------
       # FEEL FREE, BUT KNOW WHAT YOU'RE DOING.

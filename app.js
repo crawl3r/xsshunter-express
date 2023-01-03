@@ -238,6 +238,12 @@ async function get_app_server() {
 			payload_fire_data.screenshot_url = `https://${process.env.HOSTNAME}/screenshots/${payload_fire_data.screenshot_id}.png`;
 			await notification.send_email_notification(payload_fire_data);
 		}
+
+		// send out discord notification if configured
+		if(process.env.DISCORD_NOTIFICATIONS_ENABLED === "true") {
+			payload_fire_data.screenshot_url = `https://${process.env.HOSTNAME}/screenshots/${payload_fire_data.screenshot_id}.png`;
+			await notification.send_discord_notification(payload_fire_data);
+		}
 	});
 
 	app.get('/screenshots/:screenshotFilename', async (req, res) => {
